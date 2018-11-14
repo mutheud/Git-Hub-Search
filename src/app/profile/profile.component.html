@@ -1,6 +1,31 @@
-<form>
-  <div class="form-group" id="one">
-    <p class="name">Username</p>
-    <input type="text" class="form-control">
+
+<!-- <app-git-search></app-git-search> -->
+<div class="container fluid" id="main">
+
+  <div class="row">
+    <app-git-search></app-git-search>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{profile.prof}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-header">{{profile.user}}</h5>
+          <button class="btn btn-outline-primary" style="color:white;">Followers {{profile.followers}}</button>
+          <button class="btn btn-outline-success" style="color:white; margin-left: 5px;">Following {{profile.following}}</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
   </div>
-  </form>
+
+
+  <div *ngFor='let repo of repositories; let i=index'>
+    <div class="jumbotron">
+      <h4 style="font-size: 19px;">{{repo.repo.name}}</h4><br>
+      <h6>{{repo.repo.full_name}}</h6>
+      <h5 style="font-size: 13px;">{{repo.repo.description}}</h5><br>
+      <a href="{{repo.repo.html_url}}" class="btn btn-outline-dark" style="text-decoration:none; color:white;"> View Repo</a>
+      <h6></h6>
+    </div>
+  </div>
+</div>

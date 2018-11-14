@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="search-container">
+    <form>
+      <input type="text" placeholder="Search.." name="get" #get id="search" />
+      <input type="button" (click)="Search(get)" id="btn" value="GitSearch" />
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="card" style="width: 18rem;">
+      <img
+        class="card-img-top"
+        src="{{this.user.search.avatar_url}}"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-header">{{ this.user.search.login }}</h5>
+        <button class="btn btn-outline-primary" style="color:white;">
+          Followers {{ this.user.search.followers }}
+        </button>
+        <button
+          class="btn btn-outline-success"
+          style="color:white; margin-left: 5px;"
+        >
+          Following {{ this.user.search.following }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+  <div *ngFor="let search of searchs; let i = index">
+    <div class="jumbotron">
+      <h4 style="font-size: 19px;">{{ search.gitsearch.name }}</h4>
+      <br />
+      <h6>{{ search.gitsearch.full_name }}</h6>
+      <h5 style="font-size: 13px;">{{ search.gitsearch.description }}</h5>
+      <br />
+      <a
+        href="{{search.gitsearch.html_url}}"
+        class="btn btn-outline-dark"
+        style="text-decoration:none; color:white;"
+        >View Repo</a
+      >
+    </div>
+</div>
